@@ -1542,7 +1542,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4086279202973348}
   - component: {fileID: 95922273507661854}
-  m_Layer: 0
+  - component: {fileID: 2660521234086881590}
+  m_Layer: 10
   m_Name: RPGHeroHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1586,6 +1587,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2660521234086881590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556040939566342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cd555a51951704a9335f65b57de30c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613396906338018
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Level
+  - PassthroughPlatform
+  - Interactable
+  - Obstacle
+  - Player
   - 
   - 
   - 
