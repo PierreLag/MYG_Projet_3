@@ -6,11 +6,16 @@ namespace PlayerScripts
 {
     public class PlayerInput : MonoBehaviour
     {
-        public KeyCode keyForward = KeyCode.Z;
-        public KeyCode keyBackward = KeyCode.S;
-        public KeyCode keyLeft = KeyCode.Q;
-        public KeyCode keyRight = KeyCode.D;
-        public KeyCode keyJump = KeyCode.Space;
+        [SerializeField]
+        protected KeyCode keyForward = KeyCode.Z;
+        [SerializeField]
+        protected KeyCode keyBackward = KeyCode.S;
+        [SerializeField]
+        protected KeyCode keyLeft = KeyCode.Q;
+        [SerializeField]
+        protected KeyCode keyRight = KeyCode.D;
+        [SerializeField]
+        protected KeyCode keyJump = KeyCode.Space;
 
         public string[] GetInput()
         {

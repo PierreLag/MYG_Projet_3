@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    [RequireComponent(typeof(PlayerInput), typeof(Rigidbody), typeof(CapsuleCollider))]
+    [RequireComponent(typeof(PlayerInput), typeof(Rigidbody), typeof(Animator))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
@@ -15,11 +15,13 @@ namespace PlayerScripts
 
         protected PlayerInput inputs;
         private Rigidbody m_rigidbody;
+        private Animator m_animator;
 
         void Awake()
         {
             inputs = GetComponent<PlayerInput>();
             m_rigidbody = GetComponent<Rigidbody>();
+            m_animator = GetComponent<Animator>();
         }
 
         // Start is called before the first frame update
@@ -66,6 +68,8 @@ namespace PlayerScripts
                     m_rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Acceleration);
                 }
             }
+
+            m_animator.SetFloat("velocity_player", m_rigidbody.velocity.magnitude);
         }
     }
 }
