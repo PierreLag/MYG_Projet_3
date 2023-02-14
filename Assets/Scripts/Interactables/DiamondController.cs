@@ -1,12 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 using PlayerScripts;
 
-namespace Interactables {
-    public class CoinController : MonoBehaviour
+namespace Interactables
+{
+    public class DiamondController : MonoBehaviour
     {
         [Serializable]
         protected class PickUpEvent : UnityEvent<int> { }
@@ -17,21 +18,15 @@ namespace Interactables {
         protected int value;
         private Transform m_transform;
 
-        private void Awake()
+        void Awake()
         {
             m_transform = GetComponent<Transform>();
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
-            m_transform.Rotate(0, Time.deltaTime * -20, 0);
+            m_transform.Rotate(0, Time.fixedDeltaTime * -20, 0);
         }
 
         private void OnTriggerEnter(Collider other)

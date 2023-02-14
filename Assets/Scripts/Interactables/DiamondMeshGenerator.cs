@@ -2,18 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CustomMesh
+namespace Interactables
 {
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
     public class DiamondMeshGenerator : MonoBehaviour
     {
-        private Transform m_transform;
-
-        void Awake()
-        {
-            m_transform = GetComponent<Transform>();
-        }
-
         // le mesh du Diamand sera généré ici, triangle par triangle
         void OnEnable()
         {
@@ -115,18 +108,6 @@ namespace CustomMesh
             };
 
             GetComponent<MeshFilter>().mesh = mesh;
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            m_transform.Rotate(0, Time.deltaTime * -20, 0);
         }
     }
 }
