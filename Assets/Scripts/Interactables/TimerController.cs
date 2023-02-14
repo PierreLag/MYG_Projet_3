@@ -1,38 +1,32 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 using PlayerScripts;
 
-namespace Interactables {
-    public class CoinController : MonoBehaviour
+namespace Interactables
+{
+    public class TimerController : MonoBehaviour
     {
         [Serializable]
-        protected class PickUpEvent : UnityEvent<int> { }
+        protected class PickUpEvent : UnityEvent<float> { }
 
         [SerializeField]
         protected PickUpEvent OnPickUp;
         [SerializeField]
-        protected int value;
+        protected float tempsExtra = 20f;
         [SerializeField]
         protected float rotationSpeed = 20f;
 
         private Transform m_transform;
 
-        private void Awake()
+        void Awake()
         {
             m_transform = GetComponent<Transform>();
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             m_transform.Rotate(0, Time.deltaTime * rotationSpeed, 0);
         }
@@ -42,7 +36,7 @@ namespace Interactables {
             PlayerController player;
             if (other.gameObject.TryGetComponent<PlayerController>(out player))
             {
-                OnPickUp.Invoke(value);
+                OnPickUp.Invoke(tempsExtra);
             }
         }
     }

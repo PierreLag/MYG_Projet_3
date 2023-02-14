@@ -10,8 +10,13 @@ public class LevelHUDScript : MonoBehaviour
     protected TextMeshProUGUI texteScore;
     [SerializeField]
     protected TextMeshProUGUI texteTemps;
-    [SerializeField]
+
     protected LevelController level;
+
+    private void OnEnable()
+    {
+        level = LevelController.GetCurrentInstance();
+    }
 
     void FixedUpdate()
     {

@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texteScore: {fileID: 5168782697379978811}
   texteTemps: {fileID: 2879194143959881634}
-  timeOnLevel: 120
+  level: {fileID: 3221373321602654580, guid: 4363b37d9d4d5f84292747850151db41, type: 3}
 --- !u!1 &9007325400925073072
 GameObject:
   m_ObjectHideFlags: 0

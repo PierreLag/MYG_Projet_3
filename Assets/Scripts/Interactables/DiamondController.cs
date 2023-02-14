@@ -16,6 +16,9 @@ namespace Interactables
         protected PickUpEvent OnPickUp;
         [SerializeField]
         protected int value;
+        [SerializeField]
+        protected float rotationSpeed = 20f;
+
         private Transform m_transform;
 
         void Awake()
@@ -26,7 +29,7 @@ namespace Interactables
         // Update is called once per frame
         void FixedUpdate()
         {
-            m_transform.Rotate(0, Time.fixedDeltaTime * -20, 0);
+            m_transform.Rotate(0, Time.fixedDeltaTime * rotationSpeed, 0);
         }
 
         private void OnTriggerEnter(Collider other)
