@@ -1633,7 +1633,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 20
+  maxSpeed: 7
   jumpSpeed: 400
+  maxRotationSpeed: 5
+  mainCamera: {fileID: 0}
+  topDownCamera: {fileID: 0}
+  highCamera: {fileID: 0}
 --- !u!114 &4374998922986129898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,6 +1656,8 @@ MonoBehaviour:
   keyLeft: 113
   keyRight: 100
   keyJump: 32
+  keyLookUp: 114
+  keyLookDown: 102
 --- !u!1 &1613396906338018
 GameObject:
   m_ObjectHideFlags: 0
