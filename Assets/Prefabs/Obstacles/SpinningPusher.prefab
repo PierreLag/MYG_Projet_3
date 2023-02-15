@@ -302,4 +302,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e8859ad9193214792861ee7c5cc24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinningSpeed: 10
+  spinningSpeed: 30

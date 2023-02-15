@@ -11,6 +11,8 @@ namespace PlayerScripts
     {
         [SerializeField]
         protected float acceleration = 20f;
+        [SerializeField][Tooltip("The higher the value of the mitigation, the less force will move your character while in the air when pressing movement keys.")]
+        protected float airAccelerationMitigation = 5f;
         [SerializeField]
         protected float maxSpeed = 7f;
         [SerializeField]
@@ -54,22 +56,46 @@ namespace PlayerScripts
                 {
                     if (currentInput[0] == "Forward")
                     {
-                        m_rigidbody.AddForce(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z).normalized * acceleration, ForceMode.Acceleration);
+                        if (isGrounded)
+                        {
+                            m_rigidbody.AddForce(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z).normalized * acceleration, ForceMode.Acceleration);
+                        } else
+                        {
+                            m_rigidbody.AddForce(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z).normalized * acceleration / airAccelerationMitigation, ForceMode.Acceleration);
+                        }
                     }
                     if (currentInput[0] == "Backward")
                     {
-                        m_rigidbody.AddForce(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z).normalized * -acceleration, ForceMode.Acceleration);
+                        if (isGrounded)
+                        {
+                            m_rigidbody.AddForce(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z).normalized * -acceleration, ForceMode.Acceleration);
+                        } else
+                        {
+                            m_rigidbody.AddForce(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z).normalized * -acceleration / airAccelerationMitigation, ForceMode.Acceleration);
+                        }
                     }
                 }
                 if (currentInput[1] != "")
                 {
                     if (currentInput[1] == "Left")
                     {
-                        m_rigidbody.AddForce(currentCamera.transform.right * -acceleration, ForceMode.Acceleration);
+                        if (isGrounded)
+                        {
+                            m_rigidbody.AddForce(currentCamera.transform.right * -acceleration, ForceMode.Acceleration);
+                        } else
+                        {
+                            m_rigidbody.AddForce(currentCamera.transform.right * -acceleration / airAccelerationMitigation, ForceMode.Acceleration);
+                        }
                     }
                     if (currentInput[1] == "Right")
                     {
-                        m_rigidbody.AddForce(currentCamera.transform.right * acceleration, ForceMode.Acceleration);
+                        if (isGrounded)
+                        {
+                            m_rigidbody.AddForce(currentCamera.transform.right * acceleration, ForceMode.Acceleration);
+                        } else
+                        {
+                            m_rigidbody.AddForce(currentCamera.transform.right * acceleration / airAccelerationMitigation, ForceMode.Acceleration);
+                        }
                     }
                 }
                 if (currentInput[2] != "")
