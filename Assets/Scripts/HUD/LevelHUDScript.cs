@@ -13,15 +13,14 @@ public class LevelHUDScript : MonoBehaviour
 
     protected LevelController level;
 
-    private void OnEnable()
-    {
-        level = LevelController.GetCurrentInstance();
-    }
-
     void FixedUpdate()
     {
+        if (level == null)
+        {
+            level = LevelController.GetCurrentInstance();
+        }
         float time = level.GetTime();
-        texteTemps.SetText("Temps\n" + Mathf.Floor(time / 60f) + ":" + Mathf.Floor(time % 60f));
+        texteTemps.SetText("Temps\n" + Mathf.Floor(time / 60f) + ":" + Mathf.Floor(time % 60f / 10) + Mathf.Floor(time % 10f));
         texteScore.SetText("Score\n" + level.GetScore());
     }
 }

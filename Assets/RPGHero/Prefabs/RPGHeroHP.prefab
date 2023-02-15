@@ -1544,6 +1544,7 @@ GameObject:
   - component: {fileID: 95922273507661854}
   - component: {fileID: -5672955976309735120}
   - component: {fileID: 3099607076862673746}
+  - component: {fileID: 6772671456217582515}
   - component: {fileID: 2660521234086881590}
   - component: {fileID: 4374998922986129898}
   m_Layer: 10
@@ -1620,6 +1621,20 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!136 &6772671456217582515
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556040939566342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.45
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &2660521234086881590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,9 +1647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cd555a51951704a9335f65b57de30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 20
-  maxSpeed: 7
-  jumpSpeed: 400
+  acceleration: 25
+  maxSpeed: 10
+  jumpSpeed: 250
   maxRotationSpeed: 5
   mainCamera: {fileID: 0}
   topDownCamera: {fileID: 0}
