@@ -20,6 +20,8 @@ namespace PlayerScripts
         protected KeyCode keyLookUp = KeyCode.R;
         [SerializeField]
         protected KeyCode keyLookDown = KeyCode.F;
+        [SerializeField]
+        protected KeyCode keyAttack = KeyCode.Mouse0;
 
         protected Dictionary<string, KeyCode> keyMap;
 
@@ -34,11 +36,13 @@ namespace PlayerScripts
 
             keyMap.Add("Look Up", keyLookUp);
             keyMap.Add("Look Down", keyLookDown);
+
+            keyMap.Add("Attack", keyAttack);
         }
 
         public string[] GetInput()
         {
-            string[] input = { "", "", "", "" };
+            string[] input = { "", "", "", "", "" };
 
             if (Input.GetKey(keyMap["Forward"]))
             {
@@ -79,6 +83,11 @@ namespace PlayerScripts
                     input[3] = "";
                 else
                     input[3] = "Look Down";
+            }
+
+            if (Input.GetKey(keyMap["Attack"]))
+            {
+                input[4] = "Attack";
             }
 
             return input;

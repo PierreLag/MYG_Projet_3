@@ -12,11 +12,11 @@ TagManager:
   - Water
   - UI
   - Level
-  - PassthroughPlatform
+  - Pushable
   - Interactable
   - Obstacle
   - Player
-  - 
+  - Attackbox
   - 
   - 
   - 

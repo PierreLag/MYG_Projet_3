@@ -26,6 +26,8 @@ namespace PlayerScripts
         private CinemachineVirtualCamera topDownCamera;
         [SerializeField]
         private CinemachineVirtualCamera highCamera;
+        [SerializeField]
+        private BoxCollider attackHitbox;
 
         private CinemachineVirtualCamera currentCamera;
         protected PlayerInput inputs;
@@ -34,6 +36,7 @@ namespace PlayerScripts
         private CapsuleCollider m_collider;
         private bool isGrounded;
         private bool isHit;
+        private bool isAttacking;
 
         void Awake()
         {
@@ -50,7 +53,7 @@ namespace PlayerScripts
         {
             string[] currentInput = inputs.GetInput();
 
-            if (!isHit)
+            if (!isHit && !isAttacking)
             {
                 if (currentInput[0] != "")
                 {
@@ -98,12 +101,9 @@ namespace PlayerScripts
                         }
                     }
                 }
-                if (currentInput[2] != "")
+                if (currentInput[2] == "Jump" && isGrounded)
                 {
-                    if (currentInput[2] == "Jump" && isGrounded)
-                    {
-                        m_rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Acceleration);
-                    }
+                    m_rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Acceleration);
                 }
 
                 if (currentInput[3] != "")
@@ -125,6 +125,11 @@ namespace PlayerScripts
                     highCamera.Priority = 0;
                     currentCamera = mainCamera;
                 }
+
+                if (currentInput[4] == "Attack")
+                {
+                    StartCoroutine(Attack());
+                }
             }
 
             if (isGrounded && m_rigidbody.velocity.magnitude > maxSpeed)
@@ -140,7 +145,7 @@ namespace PlayerScripts
         {
             if (other.gameObject.layer == 6)    // Level layer
             {
-                if (m_collider.ClosestPoint(other.ClosestPoint(transform.position)).y < transform.position.y + m_collider.radius)
+                if (m_collider.ClosestPoint(other.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.height / 2, transform.position.z))).y < transform.position.y + (m_collider.radius / 2))
                 {
                     isGrounded = true;
                     m_animator.SetBool("isGrounded", isGrounded);
@@ -152,7 +157,7 @@ namespace PlayerScripts
         {
             if (other.gameObject.layer == 6)    // Level layer
             {
-                if (m_collider.ClosestPoint(other.ClosestPoint(transform.position)).y < transform.position.y + m_collider.radius)
+                if (m_collider.ClosestPoint(other.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.height / 2, transform.position.z))).y < transform.position.y + (m_collider.radius / 2))
                     isGrounded = false;
                 m_animator.SetBool("isGrounded", isGrounded);
             }
@@ -164,11 +169,24 @@ namespace PlayerScripts
             isHit = true;
             m_animator.SetBool("isHit", isHit);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1.5f);
             yield return new WaitUntil(() => isGrounded);
 
             isHit = false;
             m_animator.SetBool("isHit", isHit);
+        }
+
+        private IEnumerator Attack()
+        {
+            isAttacking = true;
+            m_animator.SetBool("isAttacking", true);
+            attackHitbox.enabled = true;
+
+            yield return new WaitForSeconds(1f);
+
+            isAttacking = false;
+            m_animator.SetBool("isAttacking", false);
+            attackHitbox.enabled = false;
         }
     }
 }
