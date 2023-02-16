@@ -257,7 +257,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   value: 1000
-  rotationSpeed: 20
+  rotationSpeed: 30
 --- !u!65 &8964150480468185170
 BoxCollider:
   m_ObjectHideFlags: 0

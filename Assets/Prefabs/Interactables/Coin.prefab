@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  rotationSpeed: 20
+  rotationSpeed: 30
   rangeBronze: 0.6
   rangeSilver: 0.9
 --- !u!1 &5028073985043916166

@@ -141,7 +141,7 @@ namespace PlayerScripts
             m_animator.SetFloat("velocity_player", m_rigidbody.velocity.magnitude);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.layer == 6)    // Level layer
             {
@@ -158,35 +158,43 @@ namespace PlayerScripts
             if (other.gameObject.layer == 6)    // Level layer
             {
                 if (m_collider.ClosestPoint(other.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.height / 2, transform.position.z))).y < transform.position.y + (m_collider.radius / 2))
+                {
                     isGrounded = false;
-                m_animator.SetBool("isGrounded", isGrounded);
+                    m_animator.SetBool("isGrounded", isGrounded);
+                }
             }
         }
 
         public IEnumerator PushPlayer(Vector3 force)
         {
-            m_rigidbody.AddForce(force, ForceMode.Force);
-            isHit = true;
-            m_animator.SetBool("isHit", isHit);
+            if (!isHit)
+            {
+                m_rigidbody.velocity = force;
+                isHit = true;
+                m_animator.SetBool("isHit", isHit);
 
-            yield return new WaitForSeconds(1.5f);
-            yield return new WaitUntil(() => isGrounded);
+                yield return new WaitForSeconds(1.5f);
+                yield return new WaitUntil(() => isGrounded);
 
-            isHit = false;
-            m_animator.SetBool("isHit", isHit);
+                isHit = false;
+                m_animator.SetBool("isHit", isHit);
+            }
         }
 
         private IEnumerator Attack()
         {
-            isAttacking = true;
-            m_animator.SetBool("isAttacking", true);
-            attackHitbox.enabled = true;
+            if (!isHit && !isAttacking)
+            {
+                isAttacking = true;
+                m_animator.SetBool("isAttacking", true);
+                attackHitbox.enabled = true;
 
-            yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1f);
 
-            isAttacking = false;
-            m_animator.SetBool("isAttacking", false);
-            attackHitbox.enabled = false;
+                isAttacking = false;
+                m_animator.SetBool("isAttacking", false);
+                attackHitbox.enabled = false;
+            }
         }
     }
 }

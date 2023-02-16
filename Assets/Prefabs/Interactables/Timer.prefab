@@ -100,7 +100,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   tempsExtra: 20
-  rotationSpeed: 20
+  rotationSpeed: 30
 --- !u!1 &3205158197193513952
 GameObject:
   m_ObjectHideFlags: 0
