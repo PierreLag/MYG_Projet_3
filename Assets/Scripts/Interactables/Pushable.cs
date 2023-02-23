@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
-namespace Obstacles
+namespace Interactables
 {
     public class Pushable : MonoBehaviour
     {
