@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 944982964469300595}
   - component: {fileID: 8168427493660510833}
   - component: {fileID: 1934005301388609247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228645141712907172}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f945912c57bd8044aaa568404a9c36a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 979027064323718916}
   - component: {fileID: 5340543306676070503}
   - component: {fileID: 3652748127629232220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1946519498616912562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PressurePath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 183478730014529580}
   - component: {fileID: 6140290324043551160}
   - component: {fileID: 176412457730726952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 7142791060157743238}
   - component: {fileID: 2019420676503612683}
   - component: {fileID: 7516661150457069695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8559401787380975565}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f945912c57bd8044aaa568404a9c36a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -431,7 +431,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8559401787380975565}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f945912c57bd8044aaa568404a9c36a9, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -449,6 +449,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf06254ce791874ab68303feb1a0b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  triggeringLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8707798220834747110
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +470,7 @@ GameObject:
   - component: {fileID: 5322353017350583553}
   - component: {fileID: 8752332968017713086}
   - component: {fileID: 5012333827616425538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882935020100271039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

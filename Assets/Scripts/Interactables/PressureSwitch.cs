@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class PressureSwitch : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Serializable]
+    protected class PressureEvent : UnityEvent { }
+
+    [SerializeField]
+    protected PressureEvent OnPressed;
+    [SerializeField]
+    protected PressureEvent OnRelease;
+    [SerializeField]
+    protected LayerMask triggeringLayers;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (triggeringLayers.value == other.gameObject.layer)
+        {
+            OnPressed.Invoke();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (triggeringLayers.value == other.gameObject.layer)
+        {
+            OnRelease.Invoke();
+        }
     }
 }

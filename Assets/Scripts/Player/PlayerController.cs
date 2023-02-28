@@ -19,6 +19,8 @@ namespace PlayerScripts
         protected float jumpSpeed = 400f;
         [SerializeField]
         protected float maxRotationSpeed = 1f;
+        [Tooltip("This determines the collision margin between the player and the environment. Lower numbers are stricter.")]
+        protected float skinWidth = 0.01f;
 
         [SerializeField]
         private CinemachineVirtualCamera mainCamera;
@@ -34,6 +36,8 @@ namespace PlayerScripts
         private Rigidbody m_rigidbody;
         private Animator m_animator;
         private CapsuleCollider m_collider;
+        private Collider lastCollider;
+        private Vector3 collidersDist;
         private bool isGrounded;
         private bool isHit;
         private bool isAttacking;
@@ -52,6 +56,22 @@ namespace PlayerScripts
         void FixedUpdate()
         {
             string[] currentInput = inputs.GetInput();
+
+            if (lastCollider != null)
+            {
+                collidersDist = lastCollider.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z)) - new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z);
+                
+                if (collidersDist.magnitude <= m_collider.radius + skinWidth && collidersDist.y < 0)
+                {
+                    isGrounded = true;
+                    m_animator.SetBool("isGrounded", isGrounded);
+                }
+                else
+                {
+                    isGrounded = false;
+                    m_animator.SetBool("isGrounded", isGrounded);
+                }
+            }
 
             if (!isHit && !isAttacking)
             {
@@ -145,23 +165,7 @@ namespace PlayerScripts
         {
             if (other.gameObject.layer == 6)    // Level layer
             {
-                if (m_collider.ClosestPoint(other.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.height / 2, transform.position.z))).y < transform.position.y + (m_collider.radius / 2))
-                {
-                    isGrounded = true;
-                    m_animator.SetBool("isGrounded", isGrounded);
-                }
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.layer == 6)    // Level layer
-            {
-                if (m_collider.ClosestPoint(other.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.height / 2, transform.position.z))).y < transform.position.y + (m_collider.radius / 2))
-                {
-                    isGrounded = false;
-                    m_animator.SetBool("isGrounded", isGrounded);
-                }
+                lastCollider = other;
             }
         }
 

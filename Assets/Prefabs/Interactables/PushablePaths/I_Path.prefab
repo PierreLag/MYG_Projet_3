@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 493160945676458340}
   - component: {fileID: 6066530363852669600}
   - component: {fileID: 1939859958867427674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285357426323848319}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f945912c57bd8044aaa568404a9c36a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3343253761532867711}
   - component: {fileID: 8011141762361523418}
   - component: {fileID: 7800603594902379032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1233602525851493565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: I_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4801910032225847882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 7136718336754814579}
   - component: {fileID: 7644347937101089467}
   - component: {fileID: 3775850316717402418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

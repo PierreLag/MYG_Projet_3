@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 979027064323718916}
   - component: {fileID: 5340543306676070503}
   - component: {fileID: 3652748127629232220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1946519498616912562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: L_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 183478730014529580}
   - component: {fileID: 6140290324043551160}
   - component: {fileID: 176412457730726952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4388132949006076278}
   - component: {fileID: 5979899026197807919}
   - component: {fileID: 6049394457096441156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 5970125154293321995}
   - component: {fileID: 4734703712433344557}
   - component: {fileID: 7142791060157743238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8559401787380975565}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f945912c57bd8044aaa568404a9c36a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 5322353017350583553}
   - component: {fileID: 8752332968017713086}
   - component: {fileID: 5012333827616425538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 4431271837263033356}
   - component: {fileID: 4280870662522226356}
   - component: {fileID: 319590426087951449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898649026264054040}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f945912c57bd8044aaa568404a9c36a9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882935020100271039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
