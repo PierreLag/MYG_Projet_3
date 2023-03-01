@@ -34,6 +34,7 @@ namespace Interactables
             yield return new WaitUntil(() => m_rigidbody.velocity.magnitude <= 0.0001);
 
             m_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            transform.localPosition = new Vector3(Mathf.Round(transform.localPosition.x), transform.localPosition.y, Mathf.Round(transform.localPosition.z));
         }
     }
 }

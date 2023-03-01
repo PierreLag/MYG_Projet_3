@@ -2,42 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarrierController : MonoBehaviour
+namespace Obstacles
 {
-    [SerializeField]
-    protected float openingSpeed = 0.2f;
-    [SerializeField]
-    protected float closingSpeed = 0.2f;
-    [SerializeField]
-    protected float distance = 10f;
-
-    protected GameObject bars;
-    private bool isClosing;
-
-    private void Awake()
+    public class BarrierController : MonoBehaviour
     {
-        bars = transform.GetChild(0).gameObject;
-    }
+        [SerializeField]
+        protected float openingSpeed = 0.2f;
+        [SerializeField]
+        protected float closingSpeed = 0.2f;
+        [SerializeField]
+        protected float distance = 10f;
 
-    private void FixedUpdate()
-    {
-        if (isClosing)
+        protected GameObject bars;
+        private bool isClosing;
+
+        private void Awake()
         {
-            bars.transform.position.Set(Mathf.MoveTowards(bars.transform.position.x, 0f, closingSpeed), bars.transform.position.y, bars.transform.position.z);
+            bars = transform.GetChild(0).gameObject;
         }
-        else
+
+        private void FixedUpdate()
         {
-            bars.transform.position.Set(Mathf.MoveTowards(bars.transform.position.x, distance, openingSpeed), bars.transform.position.y, bars.transform.position.z);
+            if (isClosing)
+            {
+                bars.transform.position.Set(Mathf.MoveTowards(bars.transform.position.x, 0f, closingSpeed), bars.transform.position.y, bars.transform.position.z);
+            }
+            else
+            {
+                bars.transform.position.Set(Mathf.MoveTowards(bars.transform.position.x, distance, openingSpeed), bars.transform.position.y, bars.transform.position.z);
+            }
         }
-    }
 
-    public void Open()
-    {
-        isClosing = false;
-    }
+        public void Open()
+        {
+            isClosing = false;
+        }
 
-    public void Close()
-    {
-        isClosing = true;
+        public void Close()
+        {
+            isClosing = true;
+        }
     }
 }

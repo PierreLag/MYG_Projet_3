@@ -4,31 +4,34 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public class PressureSwitch : MonoBehaviour
+namespace Interactables
 {
-    [Serializable]
-    protected class PressureEvent : UnityEvent { }
-
-    [SerializeField]
-    protected PressureEvent OnPressed;
-    [SerializeField]
-    protected PressureEvent OnRelease;
-    [SerializeField]
-    protected LayerMask triggeringLayers;
-
-    private void OnTriggerEnter(Collider other)
+    public class PressureSwitch : MonoBehaviour
     {
-        if (triggeringLayers.value == other.gameObject.layer)
+        [Serializable]
+        protected class PressureEvent : UnityEvent { }
+
+        [SerializeField]
+        protected PressureEvent OnPressed;
+        [SerializeField]
+        protected PressureEvent OnRelease;
+        [SerializeField]
+        protected LayerMask triggeringLayers;
+
+        private void OnTriggerEnter(Collider other)
         {
-            OnPressed.Invoke();
+            if (triggeringLayers.value == other.gameObject.layer)
+            {
+                OnPressed.Invoke();
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (triggeringLayers.value == other.gameObject.layer)
+        private void OnTriggerExit(Collider other)
         {
-            OnRelease.Invoke();
+            if (triggeringLayers.value == other.gameObject.layer)
+            {
+                OnRelease.Invoke();
+            }
         }
     }
 }

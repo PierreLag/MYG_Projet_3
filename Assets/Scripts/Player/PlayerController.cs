@@ -30,6 +30,8 @@ namespace PlayerScripts
         private CinemachineVirtualCamera highCamera;
         [SerializeField]
         private BoxCollider attackHitbox;
+        [SerializeField]
+        protected LayerMask groundLayers;
 
         private CinemachineVirtualCamera currentCamera;
         protected PlayerInput inputs;
@@ -37,7 +39,6 @@ namespace PlayerScripts
         private Animator m_animator;
         private CapsuleCollider m_collider;
         private Collider lastCollider;
-        private Vector3 collidersDist;
         private bool isGrounded;
         private bool isHit;
         private bool isAttacking;
@@ -59,9 +60,10 @@ namespace PlayerScripts
 
             if (lastCollider != null)
             {
-                collidersDist = lastCollider.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z)) - new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z);
-                
-                if (collidersDist.magnitude <= m_collider.radius + skinWidth && collidersDist.y < 0)
+                Vector3 positionCollider = lastCollider.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z));
+                Vector3 m_positionVerification = new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z);
+
+                if (Physics.Raycast(m_positionVerification, positionCollider - m_positionVerification, m_collider.radius + skinWidth, groundLayers) && (transform.position.y + m_collider.radius) - positionCollider.y > 0)
                 {
                     isGrounded = true;
                     m_animator.SetBool("isGrounded", isGrounded);
@@ -163,10 +165,7 @@ namespace PlayerScripts
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.layer == 6)    // Level layer
-            {
-                lastCollider = other;
-            }
+            lastCollider = other;
         }
 
         public IEnumerator PushPlayer(Vector3 force)
@@ -179,6 +178,7 @@ namespace PlayerScripts
 
                 yield return new WaitForSeconds(1.5f);
                 yield return new WaitUntil(() => isGrounded);
+                yield return new WaitForSeconds(0.5f);
 
                 isHit = false;
                 m_animator.SetBool("isHit", isHit);
