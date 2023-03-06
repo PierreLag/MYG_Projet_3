@@ -203,6 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1946519498616912562}
+  - component: {fileID: 6692030012012097562}
   m_Layer: 6
   m_Name: PressurePath
   m_TagString: Untagged
@@ -228,6 +229,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6692030012012097562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2810924812007548844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf06254ce791874ab68303feb1a0b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4567802684962153551
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,9 +357,9 @@ GameObject:
   - component: {fileID: 4734703712433344557}
   - component: {fileID: 7142791060157743238}
   - component: {fileID: 2019420676503612683}
-  - component: {fileID: 7516661150457069695}
+  - component: {fileID: 8712871443255453643}
   m_Layer: 6
-  m_Name: Floor
+  m_Name: PressureFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,9 +454,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7516661150457069695
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &8712871443255453643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,18 +465,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 8559401787380975565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf06254ce791874ab68303feb1a0b82, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b0b8b40eaf977240a736d852f8811e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRelease:
-    m_PersistentCalls:
-      m_Calls: []
+  skinWidth: 1
   triggeringLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  OnPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6692030012012097562}
+        m_TargetAssemblyTypeName: Interactables.PressureSwitch, Assembly-CSharp
+        m_MethodName: Press
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6692030012012097562}
+        m_TargetAssemblyTypeName: Interactables.PressureSwitch, Assembly-CSharp
+        m_MethodName: Release
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8707798220834747110
 GameObject:
   m_ObjectHideFlags: 0

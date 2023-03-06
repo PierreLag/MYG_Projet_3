@@ -15,21 +15,24 @@ namespace Obstacles
 
         protected GameObject bars;
         private bool isClosing;
+        private Vector3 initialPosition;
 
         private void Awake()
         {
             bars = transform.GetChild(0).gameObject;
+            initialPosition = bars.transform.position;
+            isClosing = true;
         }
 
         private void FixedUpdate()
         {
             if (isClosing)
             {
-                bars.transform.position.Set(Mathf.MoveTowards(bars.transform.position.x, 0f, closingSpeed), bars.transform.position.y, bars.transform.position.z);
+                bars.transform.position = new Vector3(Mathf.MoveTowards(bars.transform.position.x, initialPosition.x, closingSpeed), bars.transform.position.y, bars.transform.position.z);
             }
             else
             {
-                bars.transform.position.Set(Mathf.MoveTowards(bars.transform.position.x, distance, openingSpeed), bars.transform.position.y, bars.transform.position.z);
+                bars.transform.position = new Vector3(Mathf.MoveTowards(bars.transform.position.x, initialPosition.x + distance, openingSpeed), bars.transform.position.y, bars.transform.position.z);
             }
         }
 

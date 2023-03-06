@@ -15,23 +15,15 @@ namespace Interactables
         protected PressureEvent OnPressed;
         [SerializeField]
         protected PressureEvent OnRelease;
-        [SerializeField]
-        protected LayerMask triggeringLayers;
 
-        private void OnTriggerEnter(Collider other)
+        public void Press()
         {
-            if (triggeringLayers.value == other.gameObject.layer)
-            {
-                OnPressed.Invoke();
-            }
+            OnPressed.Invoke();
         }
 
-        private void OnTriggerExit(Collider other)
+        public void Release()
         {
-            if (triggeringLayers.value == other.gameObject.layer)
-            {
-                OnRelease.Invoke();
-            }
+            OnRelease.Invoke();
         }
     }
 }

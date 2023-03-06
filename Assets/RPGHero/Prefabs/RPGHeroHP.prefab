@@ -1602,7 +1602,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0.5
-  m_AngularDrag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1648,10 +1648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51cd555a51951704a9335f65b57de30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 25
+  acceleration: 30
   airAccelerationMitigation: 5
-  maxSpeed: 10
-  jumpSpeed: 250
+  maxSpeed: 8
+  jumpSpeed: 300
   maxRotationSpeed: 5
   mainCamera: {fileID: 0}
   topDownCamera: {fileID: 0}

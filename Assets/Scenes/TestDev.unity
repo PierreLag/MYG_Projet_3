@@ -1171,48 +1171,8 @@ PrefabInstance:
       value: PuzzlePlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      propertyPath: skinWidth
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1061177862}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1505484824}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Open
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BarrierController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Obstacles.BarrierController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906702614104385844, guid: 8c41441539144784194a51a80668140b, type: 3}
-      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c41441539144784194a51a80668140b, type: 3}
@@ -1870,17 +1830,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8495805583857225264, guid: e824824bce6f6a44b8aca4939dc149d3, type: 3}
   m_PrefabInstance: {fileID: 828632510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1061177862 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4251200247448690731, guid: 8c41441539144784194a51a80668140b, type: 3}
-  m_PrefabInstance: {fileID: 616778990}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85e65c575da2154bb7ce4f9604da68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1099208325
 GameObject:
   m_ObjectHideFlags: 3
@@ -2280,17 +2229,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eca411f15512d534ba8a310c507c5397, type: 3}
---- !u!114 &1505484824 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6355833981970066253, guid: 8c41441539144784194a51a80668140b, type: 3}
-  m_PrefabInstance: {fileID: 616778990}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85e65c575da2154bb7ce4f9604da68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1529186496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8495805583857225264, guid: e824824bce6f6a44b8aca4939dc149d3, type: 3}
@@ -2451,7 +2389,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690858238}
-  m_LocalRotation: {x: 0.54784733, y: -0.00037462544, z: 0.00032621564, w: 0.83657825}
+  m_LocalRotation: {x: 0.54784733, y: -0.00037458725, z: 0.00032618217, w: 0.83657825}
   m_LocalPosition: {x: 0.0019868612, y: 6.761384, z: 5.126764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2619,14 +2557,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2660521234086881590, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
-      propertyPath: maxSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660521234086881590, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
-      propertyPath: jumpSpeed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 2660521234086881590, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
       propertyPath: highCamera
       value: 
       objectReference: {fileID: 183553615}
@@ -2634,10 +2564,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 373104869}
-    - target: {fileID: 2660521234086881590, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
-      propertyPath: acceleration
-      value: 35
-      objectReference: {fileID: 0}
     - target: {fileID: 2660521234086881590, guid: c20397bf1592dc040b827e8716b0bd41, type: 3}
       propertyPath: topDownCamera
       value: 
