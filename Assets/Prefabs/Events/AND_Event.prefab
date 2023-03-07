@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6526367738244544072}
   - component: {fileID: 8773979485707721528}
   - component: {fileID: 6372897506925476148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8796120197873114239}
   - component: {fileID: 95968259431381197}
   - component: {fileID: 8584947730313545862}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121353238596243460}
   - component: {fileID: 8472654044253801650}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0, g: 1, b: 0.15642643, a: 1}
   m_Intensity: 0.5
-  m_Range: 0.1
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3175417892780734294}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cubes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 266271757814240834}
   - component: {fileID: 4008415235238789824}
   - component: {fileID: 5510050695151071395}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698629760264703502}
   - component: {fileID: 7376312054799971859}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0, g: 1, b: 0.15642643, a: 1}
   m_Intensity: 0.5
-  m_Range: 0.1
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -529,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8721926350669579142}
   - component: {fileID: 6835528834738298559}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0, g: 1, b: 0.15642643, a: 1}
   m_Intensity: 0.5
-  m_Range: 0.1
+  m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 1696271210090783618}
   - component: {fileID: 7976494856574727456}
   - component: {fileID: 5440267413697494653}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 444453677150661447}
   - component: {fileID: 9141476244795482307}
   - component: {fileID: 6621405440349395266}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 1272495549690726652}
   - component: {fileID: 1029763863485268135}
   - component: {fileID: 8255789193130053889}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 1998438801581570588}
   - component: {fileID: 6469238256144898654}
   - component: {fileID: 7246582224493739575}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -997,7 +997,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5225048911511763488}
-  m_Layer: 0
+  - component: {fileID: 8132245581055921822}
+  m_Layer: 12
   m_Name: AND_Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,6 +1027,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8132245581055921822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134679300361205293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f6d6a3868d11b4c975780ee9ecdf26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightTriggerOne: {fileID: 7376312054799971859}
+  lightTriggerTwo: {fileID: 8472654044253801650}
+  lightTriggerThree: {fileID: 6835528834738298559}
+  OnEnabled:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6469242609945557872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1060,7 @@ GameObject:
   - component: {fileID: 1855331175545353763}
   - component: {fileID: 7757644719131152355}
   - component: {fileID: 6020421679377139298}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,7 +1158,7 @@ GameObject:
   - component: {fileID: 2208238827266227469}
   - component: {fileID: 2187819674090813780}
   - component: {fileID: 6716354319888880597}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1255,7 @@ GameObject:
   - component: {fileID: 726162620274565274}
   - component: {fileID: 2935432692480139742}
   - component: {fileID: 2708797882126500938}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1353,7 @@ GameObject:
   - component: {fileID: 4263347935084677347}
   - component: {fileID: 5402960188175714400}
   - component: {fileID: 6317049920559478888}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1486,6 +1508,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fdc078e1a4f7e9c4eaa57d5f31ca161e, type: 3}
       propertyPath: m_Name
       value: Pente
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdc078e1a4f7e9c4eaa57d5f31ca161e, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdc078e1a4f7e9c4eaa57d5f31ca161e, type: 3}

@@ -1651,7 +1651,7 @@ MonoBehaviour:
   acceleration: 30
   airAccelerationMitigation: 5
   maxSpeed: 8
-  jumpSpeed: 300
+  jumpSpeed: 400
   maxRotationSpeed: 5
   mainCamera: {fileID: 0}
   topDownCamera: {fileID: 0}
