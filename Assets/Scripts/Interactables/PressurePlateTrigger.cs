@@ -32,10 +32,8 @@ namespace Interactables
         {
             Vector3 positionCollider = other.ClosestPoint(transform.position);
 
-            Debug.Log("Collision start");
             if (Physics.Raycast(transform.position, positionCollider - transform.position, skinWidth, triggeringLayers))
             {
-                Debug.Log("Triggered");
                 OnPressed.Invoke();
             }
         }
@@ -44,10 +42,8 @@ namespace Interactables
         {
             Vector3 positionCollider = other.ClosestPoint(transform.position);
 
-            Debug.Log("Collision end");
             if (Physics.Raycast(transform.position, positionCollider - transform.position, float.PositiveInfinity, triggeringLayers))
             {
-                Debug.Log("Untriggered");
                 OnRelease.Invoke();
             }
         }

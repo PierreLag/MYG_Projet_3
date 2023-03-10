@@ -23,17 +23,12 @@ namespace PlayerScripts
         protected float skinWidth = 0.01f;
 
         [SerializeField]
-        private CinemachineVirtualCamera mainCamera;
-        [SerializeField]
-        private CinemachineVirtualCamera topDownCamera;
-        [SerializeField]
-        private CinemachineVirtualCamera highCamera;
-        [SerializeField]
         private BoxCollider attackHitbox;
         [SerializeField]
         protected LayerMask groundLayers;
+        [SerializeField]
+        protected Camera currentCamera;
 
-        private CinemachineVirtualCamera currentCamera;
         protected PlayerInput inputs;
         private Rigidbody m_rigidbody;
         private Animator m_animator;
@@ -49,9 +44,6 @@ namespace PlayerScripts
             m_rigidbody = GetComponent<Rigidbody>();
             m_animator = GetComponent<Animator>();
             m_collider = GetComponent<CapsuleCollider>();
-
-            mainCamera.Priority = 10;
-            currentCamera = mainCamera;
         }
 
         void FixedUpdate()
@@ -128,27 +120,7 @@ namespace PlayerScripts
                     m_rigidbody.AddForce(Vector3.up * jumpSpeed, ForceMode.Acceleration);
                 }
 
-                if (currentInput[3] != "")
-                {
-                    if (currentInput[3] == "Look Up")
-                    {
-                        highCamera.Priority = 11;
-                        currentCamera = highCamera;
-                    }
-                    if (currentInput[3] == "Look Down")
-                    {
-                        topDownCamera.Priority = 11;
-                        currentCamera = topDownCamera;
-                    }
-                }
-                else
-                {
-                    topDownCamera.Priority = 0;
-                    highCamera.Priority = 0;
-                    currentCamera = mainCamera;
-                }
-
-                if (currentInput[4] == "Attack")
+                if (currentInput[3] == "Attack")
                 {
                     StartCoroutine(Attack());
                 }
@@ -191,9 +163,12 @@ namespace PlayerScripts
             {
                 isAttacking = true;
                 m_animator.SetBool("isAttacking", true);
+
+                yield return new WaitForSeconds(0.2f);
+
                 attackHitbox.enabled = true;
 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.8f);
 
                 isAttacking = false;
                 m_animator.SetBool("isAttacking", false);

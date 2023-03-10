@@ -10,8 +10,6 @@ namespace Obstacles
         protected float openingSpeed = 0.2f;
         [SerializeField]
         protected float closingSpeed = 0.2f;
-        //[SerializeField]
-        //protected float distance = 10f;
 
         protected GameObject bars;
         private bool isClosing;
@@ -28,12 +26,10 @@ namespace Obstacles
         {
             if (isClosing)
             {
-                //bars.transform.position = new Vector3(Mathf.MoveTowards(bars.transform.position.x, initialPosition.x, closingSpeed), bars.transform.position.y, bars.transform.position.z);
                 bars.transform.localScale = new Vector3(Mathf.MoveTowards(bars.transform.localScale.x, initialScale.x, closingSpeed), bars.transform.localScale.y, bars.transform.localScale.z);
             }
             else
             {
-                //bars.transform.position = new Vector3(Mathf.MoveTowards(bars.transform.position.x, initialPosition.x + distance, openingSpeed), bars.transform.position.y, bars.transform.position.z);
                 bars.transform.localScale = new Vector3(Mathf.MoveTowards(bars.transform.localScale.x, 0f, openingSpeed), bars.transform.localScale.y, bars.transform.localScale.z);
             }
         }
