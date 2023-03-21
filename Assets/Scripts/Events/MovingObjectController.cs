@@ -40,6 +40,31 @@ public class MovingObjectController : MonoBehaviour
             }
             totalDistance *= 2;
         }
+
+        float remainingOffset = totalDistance * offsetPosition;
+        if (isLooping)
+        {
+            int i;
+            for (i = 0; remainingOffset >= distanceList[i]; i++)
+            {
+
+            }
+        }
+        else
+        {
+            int i;
+            for (i = 0; i < distanceList.Length && remainingOffset >= distanceList[i]; i++)
+            {
+
+            }
+            if (remainingOffset >= distanceList[distanceList.Length - 1])
+            {
+                for (i = distanceList.Length - 1; i > 0 && remainingOffset >= distanceList[i]; i--)
+                {
+
+                }
+            }
+        }
     }
 
     // Update is called once per frame
