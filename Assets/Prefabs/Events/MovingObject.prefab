@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8354119771683065006}
-  m_Layer: 0
+  - component: {fileID: -8364093692664281859}
+  m_Layer: 12
   m_Name: MovingObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,3 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8364093692664281859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8743012804917403952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea8331616a5244408d1193372430bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointNodes: []
+  offsetPosition: 0
+  isLooping: 1
+  speed: 2
