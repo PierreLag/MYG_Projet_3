@@ -2,17 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelAreaController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+namespace Level {
+    [RequireComponent(typeof(Collider))]
+    public class LevelAreaController : MonoBehaviour
     {
-        
-    }
+        static protected LevelAreaController s_instance = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected CheckpointController lastCheckpoint;
+        protected Collider m_collider;
+
+        private void Awake()
+        {
+            s_instance = this;
+            m_collider = GetComponent<Collider>();
+        }
+
+        public static void UpdateLastCheckpoint (CheckpointController checkpoint)
+        {
+            if (s_instance.lastCheckpoint != null)
+                s_instance.lastCheckpoint.DeactivateCheckpoint();
+
+            s_instance.lastCheckpoint = checkpoint;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<PlayerScripts.PlayerController>(out PlayerScripts.PlayerController player))
+            {
+                other.transform.position = lastCheckpoint.GetRespawnPoint().position;
+                StartCoroutine(player.PushPlayer(Vector3.zero));
+            }
+        }
     }
 }

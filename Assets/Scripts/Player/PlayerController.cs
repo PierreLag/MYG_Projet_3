@@ -135,9 +135,10 @@ namespace PlayerScripts
             m_animator.SetFloat("velocity_player", m_rigidbody.velocity.magnitude);
         }
 
-        private void OnTriggerStay(Collider other)
+        private void OnCollisionStay(Collision other)
         {
-            lastCollider = other;
+            if (other.collider.tag != "LevelArea")
+                lastCollider = other.collider;
         }
 
         public IEnumerator PushPlayer(Vector3 force)
