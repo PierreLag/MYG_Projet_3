@@ -141,20 +141,27 @@ namespace PlayerScripts
                 lastCollider = other.collider;
         }
 
-        public IEnumerator PushPlayer(Vector3 force)
+        public IEnumerator PushPlayer(Vector3 force, GameObject source)
         {
+            if (source.TryGetComponent<Obstacles.ProjectileController>(out Obstacles.ProjectileController projectile))
+                projectile.Disappear();
+
             if (!isHit)
             {
                 m_rigidbody.velocity = force;
                 isHit = true;
-                m_animator.SetBool("isHit", isHit);
+                m_animator.SetBool("isHit", true);
 
                 yield return new WaitForSeconds(1.5f);
                 yield return new WaitUntil(() => isGrounded);
-                yield return new WaitForSeconds(0.5f);
-
+                m_animator.SetBool("isHit", false);
+                yield return new WaitForSeconds(1.5f);
                 isHit = false;
-                m_animator.SetBool("isHit", isHit);
+            }
+
+            if (projectile != null && projectile.gameObject == source)
+            {
+                Destroy(source);
             }
         }
 
