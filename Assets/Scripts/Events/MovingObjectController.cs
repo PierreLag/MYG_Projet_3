@@ -21,9 +21,12 @@ namespace CustomEvents
         protected float[] distanceList;
         protected bool isGoingBack;
         protected int latestCheckpoint;
+        protected List<Rigidbody> rigidbodiesInContact;
 
         void Awake()
         {
+            rigidbodiesInContact = new List<Rigidbody>();
+
             totalDistance = 0;
             if (isLooping)
             {
@@ -94,17 +97,26 @@ namespace CustomEvents
 
         void FixedUpdate()
         {
+            Vector3 movementVector = new Vector3();
+            Vector3 newPosition = new Vector3();
+
             if (isLooping)
             {
                 if (latestCheckpoint == checkpointNodes.Length - 1)
                 {
-                    transform.localPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[0], Time.fixedDeltaTime * speed);
+                    newPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[0], Time.fixedDeltaTime * speed);
+                    movementVector = newPosition - transform.localPosition;
+                    transform.localPosition = newPosition;
+
                     if (transform.localPosition == checkpointNodes[0])
                         latestCheckpoint = 0;
                 }
                 else
                 {
-                    transform.localPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[latestCheckpoint + 1], Time.fixedDeltaTime * speed);
+                    newPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[latestCheckpoint + 1], Time.fixedDeltaTime * speed);
+                    movementVector = newPosition - transform.localPosition;
+                    transform.localPosition = newPosition;
+
                     if (transform.localPosition == checkpointNodes[latestCheckpoint + 1])
                         latestCheckpoint++;
                 }
@@ -113,7 +125,10 @@ namespace CustomEvents
             {
                 if (isGoingBack)
                 {
-                    transform.localPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[latestCheckpoint - 1], Time.fixedDeltaTime * speed);
+                    newPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[latestCheckpoint - 1], Time.fixedDeltaTime * speed);
+                    movementVector = newPosition - transform.localPosition;
+                    transform.localPosition = newPosition;
+
                     if (transform.localPosition == checkpointNodes[latestCheckpoint - 1])
                     {
                         latestCheckpoint--;
@@ -124,7 +139,10 @@ namespace CustomEvents
                 }
                 else
                 {
-                    transform.localPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[latestCheckpoint + 1], Time.fixedDeltaTime * speed);
+                    newPosition = Vector3.MoveTowards(transform.localPosition, checkpointNodes[latestCheckpoint + 1], Time.fixedDeltaTime * speed);
+                    movementVector = newPosition - transform.localPosition;
+                    transform.localPosition = newPosition;
+
                     if (transform.localPosition == checkpointNodes[latestCheckpoint + 1])
                     {
                         latestCheckpoint++;
@@ -133,6 +151,27 @@ namespace CustomEvents
                             isGoingBack = true;
                     }
                 }
+            }
+
+            foreach (Rigidbody rigidbody in rigidbodiesInContact)
+            {
+                rigidbody.MovePosition(rigidbody.position + movementVector);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+            {
+                rigidbodiesInContact.Add(rigidbody);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+            {
+                rigidbodiesInContact.Remove(rigidbody);
             }
         }
     }

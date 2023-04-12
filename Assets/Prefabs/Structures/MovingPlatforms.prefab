@@ -744,6 +744,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1103066733341186775}
     m_Modifications:
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: -8364093692664281859, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
       propertyPath: isLooping
       value: 0
@@ -1966,6 +1978,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1103066733341186775}
     m_Modifications:
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: -8364093692664281859, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
       propertyPath: isLooping
       value: 0
@@ -2188,6 +2212,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1103066733341186775}
     m_Modifications:
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8899481095427732927, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: -8364093692664281859, guid: 32f3ee1c3d4cdb6499a3964dc0f0caec, type: 3}
       propertyPath: isLooping
       value: 0
