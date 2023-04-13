@@ -432,7 +432,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69238c2ffc5106e4da8cef30c45b0351, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1093,7 +1093,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 69238c2ffc5106e4da8cef30c45b0351, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1233,6 +1233,10 @@ PrefabInstance:
     - target: {fileID: 1978647513569036769, guid: cfdea09957fbf1c4fb70d5669f9cc5a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476636868642907051, guid: cfdea09957fbf1c4fb70d5669f9cc5a2, type: 3}
+      propertyPath: timer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2476636868642907051, guid: cfdea09957fbf1c4fb70d5669f9cc5a2, type: 3}
       propertyPath: OnCountdownReached.m_PersistentCalls.m_Calls.Array.size
@@ -2103,6 +2107,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8122575115531153687}
     m_Modifications:
+    - target: {fileID: -2865207376500808434, guid: 0cafca485c57a3c4e8e39644ca671005, type: 3}
+      propertyPath: spinningSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 860375577519222108, guid: 0cafca485c57a3c4e8e39644ca671005, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb09363b2ca115a4b857e035700df7c3, type: 2}
+    - target: {fileID: 4450834138720652763, guid: 0cafca485c57a3c4e8e39644ca671005, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb09363b2ca115a4b857e035700df7c3, type: 2}
     - target: {fileID: 6197279828488767875, guid: 0cafca485c57a3c4e8e39644ca671005, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -30,7 +30,7 @@ namespace Level {
             if (other.TryGetComponent<PlayerScripts.PlayerController>(out PlayerScripts.PlayerController player))
             {
                 other.transform.position = lastCheckpoint.GetRespawnPoint().position;
-                StartCoroutine(player.PushPlayer(Vector3.zero, gameObject));
+                StartCoroutine(player.PushPlayer(Vector3.zero, s_instance.gameObject));
             }
             if (other.gameObject.layer == 9)    // The Obstacle Layer, used for moving objects interfering with the player and that may go out of bounds.
             {

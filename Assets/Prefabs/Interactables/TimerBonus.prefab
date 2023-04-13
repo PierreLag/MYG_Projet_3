@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 993968164381854323}
   - component: {fileID: 3322280476731829675}
   - component: {fileID: 2466720483631176309}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TimerBonus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8624302489196212544}
   - component: {fileID: 6094213713337718780}
   - component: {fileID: 8791352459291267786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 6849221805190303118}
   - component: {fileID: 3204706319671014695}
   - component: {fileID: 1504185931718301706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 6634610265810123415}
   - component: {fileID: 6375364720273738965}
   - component: {fileID: 1429449600975928633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1005988198134126995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 1446736200755574409}
   - component: {fileID: 5820538539168404187}
   - component: {fileID: 8517625443744288967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

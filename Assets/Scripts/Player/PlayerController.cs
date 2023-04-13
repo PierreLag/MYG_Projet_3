@@ -55,7 +55,8 @@ namespace PlayerScripts
                 Vector3 positionCollider = lastCollider.ClosestPoint(new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z));
                 Vector3 m_positionVerification = new Vector3(transform.position.x, transform.position.y + m_collider.radius, transform.position.z);
 
-                if (Physics.Raycast(m_positionVerification, positionCollider - m_positionVerification, m_collider.radius + skinWidth, groundLayers) && (transform.position.y + m_collider.radius) - positionCollider.y > 0)
+                if (Physics.Raycast(m_positionVerification, positionCollider - m_positionVerification, m_collider.radius + skinWidth, groundLayers) &&
+                    transform.position.y + (m_collider.radius / 2)  > positionCollider.y)
                 {
                     isGrounded = true;
                     m_animator.SetBool("isGrounded", isGrounded);
@@ -122,6 +123,7 @@ namespace PlayerScripts
 
                 if (currentInput[3] == "Attack")
                 {
+                    m_rigidbody.rotation = Quaternion.RotateTowards(m_rigidbody.rotation, Quaternion.LookRotation(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z)), 360);
                     StartCoroutine(Attack());
                 }
             }

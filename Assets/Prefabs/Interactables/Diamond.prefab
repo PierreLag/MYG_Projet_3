@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1552135018533949054}
   - component: {fileID: 169771900846980336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: -2961562831805530996}
   - component: {fileID: -4444630902496224907}
   - component: {fileID: 8964150480468185170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8250044953108049821}
   - component: {fileID: 1226612495406715735}
   - component: {fileID: 6005754817810418014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shiny diamond particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5092,7 +5092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 47602793765780355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
