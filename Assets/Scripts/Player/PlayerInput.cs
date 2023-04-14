@@ -18,6 +18,8 @@ namespace PlayerScripts
         protected KeyCode keyJump = KeyCode.Space;
         [SerializeField]
         protected KeyCode keyAttack = KeyCode.Mouse0;
+        [SerializeField]
+        protected KeyCode keyPause = KeyCode.Escape;
 
         protected Dictionary<string, KeyCode> keyMap;
 
@@ -31,6 +33,8 @@ namespace PlayerScripts
             keyMap.Add("Jump", keyJump);
 
             keyMap.Add("Attack", keyAttack);
+
+            keyMap.Add("Pause", keyPause);
         }
 
         public string[] GetInput()
@@ -73,5 +77,16 @@ namespace PlayerScripts
 
             return input;
         }
+
+        /*public void FreezeToggle()
+        {
+            if (Input.GetKeyDown(keyMap["Pause"]))
+            {
+                if (Time.timeScale == 1)
+                    Time.timeScale = 0;
+                else
+                    Time.timeScale = 1;
+            }
+        }*/
     }
 }

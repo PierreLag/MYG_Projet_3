@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Level;
 
-public class LevelHUDScript : MonoBehaviour
+namespace Level
 {
-    [SerializeField]
-    protected TextMeshProUGUI texteScore;
-    [SerializeField]
-    protected TextMeshProUGUI texteTemps;
-
-    protected LevelController level;
-
-    void FixedUpdate()
+    public class LevelHUDScript : MonoBehaviour
     {
-        if (level == null)
+        [SerializeField]
+        protected TextMeshProUGUI texteScore;
+        [SerializeField]
+        protected TextMeshProUGUI texteTemps;
+
+        protected LevelController level;
+
+        void FixedUpdate()
         {
-            level = LevelController.GetCurrentInstance();
+            if (level == null)
+            {
+                level = LevelController.GetCurrentInstance();
+            }
+            float time = level.GetTime();
+            texteTemps.SetText("Temps\n" + Mathf.Floor(time / 60f) + ":" + Mathf.Floor(time % 60f / 10) + Mathf.Floor(time % 10f));
+            texteScore.SetText("Score\n" + level.GetScore());
         }
-        float time = level.GetTime();
-        texteTemps.SetText("Temps\n" + Mathf.Floor(time / 60f) + ":" + Mathf.Floor(time % 60f / 10) + Mathf.Floor(time % 10f));
-        texteScore.SetText("Score\n" + level.GetScore());
     }
 }

@@ -131,7 +131,7 @@ namespace PlayerScripts
             if (isGrounded && m_rigidbody.velocity.magnitude > maxSpeed)
                 m_rigidbody.velocity = m_rigidbody.velocity.normalized * maxSpeed;
 
-            if (m_rigidbody.velocity.magnitude > 0.01)
+            if (!isAttacking && m_rigidbody.velocity.magnitude > 0.01)
                 m_rigidbody.rotation = Quaternion.RotateTowards(m_rigidbody.rotation, Quaternion.LookRotation(new Vector3(m_rigidbody.velocity.x, 0, m_rigidbody.velocity.z)), maxRotationSpeed);
 
             m_animator.SetFloat("velocity_player", m_rigidbody.velocity.magnitude);
