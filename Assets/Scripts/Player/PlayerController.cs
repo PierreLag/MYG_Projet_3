@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using Level;
 
 namespace PlayerScripts
 {
@@ -44,6 +44,25 @@ namespace PlayerScripts
             m_rigidbody = GetComponent<Rigidbody>();
             m_animator = GetComponent<Animator>();
             m_collider = GetComponent<CapsuleCollider>();
+        }
+
+
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(inputs.GetKeyMapping()["Pause"]))
+            {
+                if (Time.timeScale == 0)
+                {
+                    LevelController.UnfreezeGame();
+                    LevelHUDScript.Unpause();
+                }
+                else
+                {
+                    LevelController.FreezeGame();
+                    LevelHUDScript.Pause();
+                }
+            }
         }
 
         void FixedUpdate()

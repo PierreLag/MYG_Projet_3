@@ -37,6 +37,11 @@ namespace PlayerScripts
             keyMap.Add("Pause", keyPause);
         }
 
+        public Dictionary<string, KeyCode> GetKeyMapping()
+        {
+            return keyMap;
+        }
+
         public string[] GetInput()
         {
             string[] input = { "", "", "", "" };
@@ -77,16 +82,5 @@ namespace PlayerScripts
 
             return input;
         }
-
-        /*public void FreezeToggle()
-        {
-            if (Input.GetKeyDown(keyMap["Pause"]))
-            {
-                if (Time.timeScale == 1)
-                    Time.timeScale = 0;
-                else
-                    Time.timeScale = 1;
-            }
-        }*/
     }
 }
