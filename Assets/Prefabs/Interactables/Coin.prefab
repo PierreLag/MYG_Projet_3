@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2496107623898779303}
   - component: {fileID: 4066015104108186223}
   - component: {fileID: 8540620414402764229}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3212952380594543144}
   - component: {fileID: 1823911356445942014}
   - component: {fileID: 1140553027052589351}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8495805583857225264}
   - component: {fileID: 1949456409733378490}
   - component: {fileID: 5398811348582556153}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8315018660261020680}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Meshes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

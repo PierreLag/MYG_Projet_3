@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Level;
+using CustomUI;
 
 namespace PlayerScripts
 {
@@ -45,8 +46,6 @@ namespace PlayerScripts
             m_animator = GetComponent<Animator>();
             m_collider = GetComponent<CapsuleCollider>();
         }
-
-
 
         private void Update()
         {

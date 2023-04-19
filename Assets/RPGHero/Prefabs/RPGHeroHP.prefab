@@ -1661,6 +1661,7 @@ MonoBehaviour:
   keyRight: 100
   keyJump: 32
   keyAttack: 323
+  keyPause: 27
 --- !u!1 &1613396906338018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,7 +2471,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1868402437880211676}
   - component: {fileID: 6202134469628487914}
-  - component: {fileID: 4538756515333778526}
   - component: {fileID: 6075518884009122015}
   m_Layer: 11
   m_Name: AttackHitbox
@@ -2507,22 +2507,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.1, z: 1}
   m_Center: {x: 0, y: 0, z: 0.5}
---- !u!54 &4538756515333778526
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5008385164991772442}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &6075518884009122015
 MonoBehaviour:
   m_ObjectHideFlags: 0
