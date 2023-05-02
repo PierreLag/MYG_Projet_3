@@ -21,8 +21,11 @@ namespace Interactables
 
         private Transform m_transform;
 
+        private static int diamondAmount = 0;
+
         void Awake()
         {
+            diamondAmount++;
             m_transform = GetComponent<Transform>();
         }
 
@@ -39,6 +42,16 @@ namespace Interactables
             {
                 OnPickUp.Invoke(value);
             }
+        }
+
+        public void ResetDiamondAmount()
+        {
+            diamondAmount = 0;
+        }
+
+        public static int GetDiamondAmount()
+        {
+            return diamondAmount;
         }
     }
 }

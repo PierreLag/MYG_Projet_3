@@ -30,8 +30,12 @@ namespace Interactables {
         protected int value;
         private Transform m_transform;
 
+        protected static int coinAmount = 0;
+
         private void Awake()
         {
+            coinAmount++;
+
             m_transform = GetComponent<Transform>();
             float random = UnityEngine.Random.Range(0f, 1f);
             Transform Cylinder = this.transform.GetChild(0).GetChild(0);
@@ -73,6 +77,16 @@ namespace Interactables {
             {
                 OnPickUp.Invoke(value);
             }
+        }
+
+        public void ResetCoinAmount()
+        {
+            coinAmount = 0;
+        }
+
+        public static int GetCoinAmount()
+        {
+            return coinAmount;
         }
     }
 }

@@ -21,8 +21,11 @@ namespace Interactables
 
         private Transform m_transform;
 
+        protected static int timerAmount = 0;
+
         void Awake()
         {
+            timerAmount++;
             m_transform = GetComponent<Transform>();
         }
 
@@ -38,6 +41,16 @@ namespace Interactables
             {
                 OnPickUp.Invoke(tempsExtra);
             }
+        }
+
+        public void ResetTimerAmount()
+        {
+            timerAmount = 0;
+        }
+
+        public static int GetTimerAmount()
+        {
+            return timerAmount;
         }
     }
 }
