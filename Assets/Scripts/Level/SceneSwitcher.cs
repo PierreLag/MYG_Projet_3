@@ -23,6 +23,10 @@ namespace Level
             SceneManager.LoadScene(st_loadingScene);
 
             await Task.Delay(1000);
+            Interactables.CoinController.ResetCoinAmount();
+            Interactables.TimerController.ResetTimerAmount();
+            Interactables.DiamondController.ResetDiamondAmount();
+
             SceneManager.LoadSceneAsync(newSceneName);
         }
     }

@@ -1,18 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class AudioOptionController : MonoBehaviour
+namespace CustomUI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AudioOptionController : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        private float defaultMusicVolume = 1f;
+        [SerializeField]
+        private float defaultSFXVolume = 1f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField]
+        protected Slider musicSlider;
+        [SerializeField]
+        protected Slider sfxSlider;
+
+        protected static float musiqueVolume;
+        protected static float sfxVolume;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            if (!PlayerPrefs.HasKey("MusiqueVolume"))
+            {
+                PlayerPrefs.SetFloat("MusiqueVolume", defaultMusicVolume);
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("SFXVolume"))
+            {
+                PlayerPrefs.SetFloat("SFXVolume", defaultSFXVolume);
+                PlayerPrefs.Save();
+            }
+
+            musicSlider.value = PlayerPrefs.GetFloat("MusiqueVolume");
+            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        }
+
+        public void ChangeMusicVolume(float value)
+        {
+            PlayerPrefs.SetFloat("MusiqueVolume", value);
+            PlayerPrefs.Save();
+        }
+
+        public void ChangeSFXVolume(float value)
+        {
+            PlayerPrefs.SetFloat("SFXVolume", value);
+            PlayerPrefs.Save();
+        }
     }
 }

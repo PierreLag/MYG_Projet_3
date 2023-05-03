@@ -43,7 +43,7 @@ namespace Interactables
             }
         }
 
-        public void ResetTimerAmount()
+        public static void ResetTimerAmount()
         {
             timerAmount = 0;
         }

@@ -34,6 +34,7 @@ namespace PlayerScripts
         private Rigidbody m_rigidbody;
         private Animator m_animator;
         private CapsuleCollider m_collider;
+        private AudioSource m_audioSource;
         private Collider lastCollider;
         private bool isGrounded;
         private bool isHit;
@@ -45,11 +46,12 @@ namespace PlayerScripts
             m_rigidbody = GetComponent<Rigidbody>();
             m_animator = GetComponent<Animator>();
             m_collider = GetComponent<CapsuleCollider>();
+            m_audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(inputs.GetKeyMapping()["Pause"]))
+            if (Input.GetKeyDown(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Pause"))))
             {
                 if (Time.timeScale == 0)
                 {
@@ -144,6 +146,11 @@ namespace PlayerScripts
                     m_rigidbody.rotation = Quaternion.RotateTowards(m_rigidbody.rotation, Quaternion.LookRotation(new Vector3(currentCamera.transform.forward.x, 0, currentCamera.transform.forward.z)), 360);
                     StartCoroutine(Attack());
                 }
+
+                if (isGrounded)
+                    m_audioSource.pitch = m_rigidbody.velocity.magnitude * 3 / maxSpeed;
+                else
+                    m_audioSource.pitch = 0;
             }
 
             if (isGrounded && m_rigidbody.velocity.magnitude > maxSpeed)

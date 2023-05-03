@@ -1,56 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace PlayerScripts
 {
     public class PlayerInput : MonoBehaviour
     {
         [SerializeField]
-        protected KeyCode keyForward = KeyCode.Z;
+        protected KeyCode defaultKeyForward = KeyCode.Z;
         [SerializeField]
-        protected KeyCode keyBackward = KeyCode.S;
+        protected KeyCode defaultKeyBackward = KeyCode.S;
         [SerializeField]
-        protected KeyCode keyLeft = KeyCode.Q;
+        protected KeyCode defaultKeyLeft = KeyCode.Q;
         [SerializeField]
-        protected KeyCode keyRight = KeyCode.D;
+        protected KeyCode defaultKeyRight = KeyCode.D;
         [SerializeField]
-        protected KeyCode keyJump = KeyCode.Space;
+        protected KeyCode defaultKeyJump = KeyCode.Space;
         [SerializeField]
-        protected KeyCode keyAttack = KeyCode.Mouse0;
+        protected KeyCode defaultKeyAttack = KeyCode.Mouse0;
         [SerializeField]
-        protected KeyCode keyPause = KeyCode.Escape;
+        protected KeyCode defaultKeyPause = KeyCode.Escape;
 
-        protected Dictionary<string, KeyCode> keyMap;
-
-        PlayerInput()
+        void Awake()
         {
-            keyMap = new Dictionary<string, KeyCode>();
-            keyMap.Add("Forward", keyForward);
-            keyMap.Add("Backward", keyBackward);
-            keyMap.Add("Left", keyLeft);
-            keyMap.Add("Right", keyRight);
-            keyMap.Add("Jump", keyJump);
-
-            keyMap.Add("Attack", keyAttack);
-
-            keyMap.Add("Pause", keyPause);
-        }
-
-        public Dictionary<string, KeyCode> GetKeyMapping()
-        {
-            return keyMap;
+            if (!PlayerPrefs.HasKey("Forward"))
+            {
+                PlayerPrefs.SetString("Forward", defaultKeyForward.ToString());
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("Backward"))
+            {
+                PlayerPrefs.SetString("Backward", defaultKeyBackward.ToString());
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("Left"))
+            {
+                PlayerPrefs.SetString("Left", defaultKeyLeft.ToString());
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("Right"))
+            {
+                PlayerPrefs.SetString("Right", defaultKeyRight.ToString());
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("Jump"))
+            {
+                PlayerPrefs.SetString("Jump", defaultKeyJump.ToString());
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("Attack"))
+            {
+                PlayerPrefs.SetString("Attack", defaultKeyAttack.ToString());
+                PlayerPrefs.Save();
+            }
+            if (!PlayerPrefs.HasKey("Pause"))
+            {
+                PlayerPrefs.SetString("Pause", defaultKeyPause.ToString());
+                PlayerPrefs.Save();
+            }
         }
 
         public string[] GetInput()
         {
             string[] input = { "", "", "", "" };
 
-            if (Input.GetKey(keyMap["Forward"]))
+            if (Input.GetKey(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Forward"))))
             {
                 input[0] = "Forward";
             }
-            if (Input.GetKey(keyMap["Backward"]))
+            if (Input.GetKey(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Backward"))))
             {
                 if (input[0] == "Forward")
                     input[0] = "";
@@ -58,11 +77,11 @@ namespace PlayerScripts
                     input[0] = "Backward";
             }
 
-            if (Input.GetKey(keyMap["Left"]))
+            if (Input.GetKey(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Left"))))
             {
                 input[1] = "Left";
             }
-            if (Input.GetKey(keyMap["Right"]))
+            if (Input.GetKey(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Right"))))
             {
                 if (input[1] == "Left")
                     input[1] = "";
@@ -70,12 +89,12 @@ namespace PlayerScripts
                     input[1] = "Right";
             }
 
-            if (Input.GetKey(keyMap["Jump"]))
+            if (Input.GetKey(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Jump"))))
             {
                 input[2] = "Jump";
             }
 
-            if (Input.GetKey(keyMap["Attack"]))
+            if (Input.GetKey(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Attack"))))
             {
                 input[3] = "Attack";
             }

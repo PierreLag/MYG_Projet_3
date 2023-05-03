@@ -79,7 +79,7 @@ namespace Interactables {
             }
         }
 
-        public void ResetCoinAmount()
+        public static void ResetCoinAmount()
         {
             coinAmount = 0;
         }

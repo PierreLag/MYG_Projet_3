@@ -44,7 +44,7 @@ namespace Interactables
             }
         }
 
-        public void ResetDiamondAmount()
+        public static void ResetDiamondAmount()
         {
             diamondAmount = 0;
         }
