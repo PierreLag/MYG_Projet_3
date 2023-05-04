@@ -1544,9 +1544,10 @@ GameObject:
   - component: {fileID: 95922273507661854}
   - component: {fileID: -5672955976309735120}
   - component: {fileID: 3099607076862673746}
+  - component: {fileID: 6721829753047323484}
   - component: {fileID: 2660521234086881590}
   - component: {fileID: 4374998922986129898}
-  - component: {fileID: 6721829753047323484}
+  - component: {fileID: -8781936581464927573}
   m_Layer: 10
   m_Name: RPGHeroHP
   m_TagString: Untagged
@@ -1622,47 +1623,6 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &2660521234086881590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556040939566342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51cd555a51951704a9335f65b57de30c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 30
-  airAccelerationMitigation: 5
-  maxSpeed: 8
-  jumpSpeed: 400
-  maxRotationSpeed: 5
-  attackHitbox: {fileID: 6202134469628487914}
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 704
-  currentCamera: {fileID: 0}
---- !u!114 &4374998922986129898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556040939566342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26db878912ac30c4c85b1db406123951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyForward: 122
-  keyBackward: 115
-  keyLeft: 113
-  keyRight: 100
-  keyJump: 32
-  keyAttack: 323
-  keyPause: 27
 --- !u!82 &6721829753047323484
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1759,6 +1719,61 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2660521234086881590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556040939566342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cd555a51951704a9335f65b57de30c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 30
+  airAccelerationMitigation: 5
+  maxSpeed: 8
+  jumpSpeed: 400
+  maxRotationSpeed: 5
+  attackHitbox: {fileID: 6202134469628487914}
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 704
+  currentCamera: {fileID: 0}
+--- !u!114 &4374998922986129898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556040939566342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26db878912ac30c4c85b1db406123951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultKeyForward: 122
+  defaultKeyBackward: 115
+  defaultKeyLeft: 113
+  defaultKeyRight: 100
+  defaultKeyJump: 32
+  defaultKeyAttack: 323
+  defaultKeyPause: 27
+--- !u!114 &-8781936581464927573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556040939566342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a648d2a3644cc43aa908a18e8c6473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundType: 1
+  volumeMultiplier: 0.5
 --- !u!1 &1613396906338018
 GameObject:
   m_ObjectHideFlags: 0

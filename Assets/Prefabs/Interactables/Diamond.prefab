@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 8690770731575840805}
   - component: {fileID: 6697880600183589002}
   - component: {fileID: 7757117230755511849}
+  - component: {fileID: 8964150480468185170}
   - component: {fileID: -2961562831805530996}
   - component: {fileID: -4444630902496224907}
-  - component: {fileID: 8964150480468185170}
   m_Layer: 15
   m_Name: Diamond
   m_TagString: Untagged
@@ -181,6 +181,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8964150480468185170
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775515772757256811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.2, z: 1.5}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &-2961562831805530996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,19 +283,6 @@ MonoBehaviour:
         m_CallState: 2
   value: 1000
   rotationSpeed: 30
---- !u!65 &8964150480468185170
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3775515772757256811}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.2, z: 1.5}
-  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &6028970599997756523
 GameObject:
   m_ObjectHideFlags: 0
