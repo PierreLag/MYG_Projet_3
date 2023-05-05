@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64e32f0904cc474285867f02b5be91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePathName: ./Prefab/File/Scoreboard.json
+  filePathName: ./Assets/Prefabs/File/Scoreboard.json
+  maxScoreStorage: 10

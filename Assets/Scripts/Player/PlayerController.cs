@@ -53,12 +53,7 @@ namespace PlayerScripts
         {
             if (Input.GetKeyDown(Enum.Parse<KeyCode>(PlayerPrefs.GetString("Pause"))))
             {
-                if (Time.timeScale == 0)
-                {
-                    LevelController.UnfreezeGame();
-                    LevelHUDScript.Unpause();
-                }
-                else
+                if (Time.timeScale == 1)
                 {
                     LevelController.FreezeGame();
                     LevelHUDScript.Pause();
@@ -147,10 +142,14 @@ namespace PlayerScripts
                     StartCoroutine(Attack());
                 }
 
-                if (isGrounded)
+                if (isGrounded && !isHit)
+                {
+                    if (!m_audioSource.isPlaying)
+                        m_audioSource.Play();
                     m_audioSource.pitch = m_rigidbody.velocity.magnitude * 3 / maxSpeed;
+                }
                 else
-                    m_audioSource.pitch = 0;
+                    m_audioSource.Stop();
             }
 
             if (isGrounded && m_rigidbody.velocity.magnitude > maxSpeed)

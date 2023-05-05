@@ -9,66 +9,107 @@ namespace FileScripts
     public class ScoreboardManager : MonoBehaviour
     {
         [SerializeField]
-        protected string filePathName = "./Scoreboard.json";
+        protected string filePathName = "./Assets/Prefabs/File/Scoreboard.json";
+        [SerializeField]
+        protected int maxScoreStorage = 10;
 
         private static string st_filePathName;
+        private static int st_maxScoreStorage;
 
-        [Serializable]
-        private class Score
-        {
-            public int score;
-            public string name;
-            public string day;
-
-            public static Score[] CreateArrayFromJSON(string json)
-            {
-                return JsonUtility.FromJson<Score[]>(json);
-            }
-
-            public static string CreateJSONFromArray(Score[] scoreboard)
-            {
-                return JsonUtility.ToJson(scoreboard);
-            }
-        }
-
+        
         [STAThread]
         private void Awake()
         {
             st_filePathName = filePathName;
+            st_maxScoreStorage = maxScoreStorage;
 
             try
             {
                 StreamReader sr = new StreamReader(filePathName);
-                string text = sr.ReadLine();
+                string text = sr.ReadToEnd();
+                sr.Close();
 
-                if (text == "")
+                if (text == null || text == "")
                 {
-                    sr.Close();
-
                     StreamWriter sw = new StreamWriter(filePathName);
-                    sw.Write(Score.CreateJSONFromArray(new Score[10]));
+
+                    Score[] defaultScoreboard = new Score[maxScoreStorage];
+
+                    for (int i = 0; i < maxScoreStorage; i++)
+                    {
+                        defaultScoreboard[i] = new Score();
+                        defaultScoreboard[i].day.minute += i;
+                    }
+
+                    sw.Write(Score.CreateJSONFromArray(defaultScoreboard, true));
 
                     sw.Close();
-                }
-                else
-                {
-                    sr.Close();
                 }
             }
             catch (Exception e)
             {
                 Debug.LogException(e);
             }
-            finally
-            {
-
-            }
         }
 
         [STAThread]
         public static void StoreScore(int score, string name)
         {
+            Score[] previousList = ReadScore();
+            Score newScore = new Score(score, name);
 
+            SortedList<double, Score> tempList = new SortedList<double, Score>(new DoubleDescOrder());
+
+            foreach (Score previousScore in previousList)
+            {
+                tempList.Add(previousScore.score + (previousScore.day.year / 10000d) + (previousScore.day.month / 1000000d) + (previousScore.day.day / 100000000d)
+                    + (previousScore.day.hour / 10000000000d) + (previousScore.day.minute / 1000000000000d) + (previousScore.day.second / 100000000000000d), previousScore);
+            }
+            tempList.Add(newScore.score + (newScore.day.year / 10000d) + (newScore.day.month / 1000000d) + (newScore.day.day / 100000000d)
+                    + (newScore.day.hour / 10000000000d) + (newScore.day.minute / 1000000000000d) + (newScore.day.second / 100000000000000d), newScore);
+
+            for (int i = 0; i < st_maxScoreStorage; i++)
+            {
+                previousList[i] = tempList.Values[i];
+            }
+
+            try
+            {
+                StreamWriter sw = new StreamWriter(st_filePathName, false);
+                sw.Write(Score.CreateJSONFromArray(previousList, true));
+
+                sw.Close();
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+        }
+
+        [STAThread]
+        public static Score[] ReadScore()
+        {
+            Score[] score = new Score[st_maxScoreStorage];
+            try
+            {
+                StreamReader sr = new StreamReader(st_filePathName);
+                string jsonScore = sr.ReadToEnd();
+
+                sr.Close();
+
+                score = Score.CreateArrayFromJSON(jsonScore);
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+
+            return score;
+        }
+
+        public static int GetMaxScore()
+        {
+            return st_maxScoreStorage;
         }
     }
 }
