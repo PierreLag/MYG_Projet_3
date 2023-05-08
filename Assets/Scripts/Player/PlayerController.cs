@@ -148,9 +148,10 @@ namespace PlayerScripts
                         m_audioSource.Play();
                     m_audioSource.pitch = m_rigidbody.velocity.magnitude * 3 / maxSpeed;
                 }
-                else
-                    m_audioSource.Stop();
             }
+
+            if (!isGrounded || isHit)
+                m_audioSource.Stop();
 
             if (isGrounded && m_rigidbody.velocity.magnitude > maxSpeed)
                 m_rigidbody.velocity = m_rigidbody.velocity.normalized * maxSpeed;
@@ -200,13 +201,13 @@ namespace PlayerScripts
 
                 yield return new WaitForSeconds(0.2f);
 
-                attackHitbox.enabled = true;
+                attackHitbox.gameObject.SetActive(true);
 
                 yield return new WaitForSeconds(0.8f);
 
                 isAttacking = false;
                 m_animator.SetBool("isAttacking", false);
-                attackHitbox.enabled = false;
+                attackHitbox.gameObject.SetActive(false);
             }
         }
     }

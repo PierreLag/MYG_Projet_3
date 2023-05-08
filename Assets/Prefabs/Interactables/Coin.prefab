@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 1
-  volumeMultiplier: 1
+  volumeMultiplier: 0.75
 --- !u!1 &5028073985043916166
 GameObject:
   m_ObjectHideFlags: 0

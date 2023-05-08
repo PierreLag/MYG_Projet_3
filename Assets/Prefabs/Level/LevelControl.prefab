@@ -156,4 +156,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundType: 0
-  volumeMultiplier: 1
+  volumeMultiplier: 0.6
