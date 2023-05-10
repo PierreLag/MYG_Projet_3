@@ -12,16 +12,19 @@ namespace FileScripts
         protected string filePathName = "./Assets/Prefabs/File/Scoreboard.json";
         [SerializeField]
         protected int maxScoreStorage = 10;
+        [SerializeField]
+        protected float timeScoreMultiplier = 5;
 
         private static string st_filePathName;
         private static int st_maxScoreStorage;
-
+        private static float st_timeScoreMultiplier;
         
         [STAThread]
         private void Awake()
         {
             st_filePathName = filePathName;
             st_maxScoreStorage = maxScoreStorage;
+            st_timeScoreMultiplier = timeScoreMultiplier;
 
             try
             {
@@ -110,6 +113,11 @@ namespace FileScripts
         public static int GetMaxScore()
         {
             return st_maxScoreStorage;
+        }
+
+        public static float GetTimeScoreMultiplier()
+        {
+            return st_timeScoreMultiplier;
         }
     }
 }

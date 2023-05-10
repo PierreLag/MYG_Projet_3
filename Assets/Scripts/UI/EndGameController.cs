@@ -46,10 +46,10 @@ namespace CustomUI
             await Task.Delay(500);
             texteTemps.SetText("Temps restant :\n" + Mathf.Floor(currentLevel.GetTime() / 60f) + ":" + Mathf.Floor(currentLevel.GetTime() % 60f / 10) + Mathf.Floor(currentLevel.GetTime() % 10f));
 
-            scoreFinal = currentLevel.GetScore() + (int)Mathf.Floor(currentLevel.GetTime() * 100);
+            scoreFinal = currentLevel.GetScore() + (int)Mathf.Floor(currentLevel.GetTime() * ScoreboardManager.GetTimeScoreMultiplier());
 
             await Task.Delay(500);
-            texteScoreFinal.SetText("Score obtenu :\n" + scoreFinal);
+            texteScoreFinal.SetText("Score final :\n" + scoreFinal);
 
             await Task.Delay(500);
             nomJoueur.SetActive(true);

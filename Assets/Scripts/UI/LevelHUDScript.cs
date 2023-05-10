@@ -31,7 +31,6 @@ namespace CustomUI
         protected static LevelHUDScript s_levelHudScript;
         protected static GameObject st_ecranPause;
         protected static GameObject st_ecranFinPartie;
-        protected static GameObject currentEcranPause;
 
         private void Awake()
         {
@@ -62,7 +61,7 @@ namespace CustomUI
 
         public static void Pause()
         {
-            currentEcranPause = Instantiate(st_ecranPause, s_levelHudScript.transform);
+            st_ecranPause.SetActive(true);
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -70,7 +69,7 @@ namespace CustomUI
 
         public static void Unpause()
         {
-            Destroy(currentEcranPause);
+            st_ecranPause.SetActive(false);
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -85,7 +84,7 @@ namespace CustomUI
             await Task.Delay(1000);
 
             s_levelHudScript.ingameUI.SetActive(false);
-            Instantiate(st_ecranFinPartie, s_levelHudScript.transform);
+            st_ecranFinPartie.SetActive(true);
         }
     }
 }
