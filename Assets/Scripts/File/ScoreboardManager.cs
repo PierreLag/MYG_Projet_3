@@ -9,7 +9,7 @@ namespace FileScripts
     public class ScoreboardManager : MonoBehaviour
     {
         [SerializeField]
-        protected string filePathName = "./Assets/Prefabs/File/Scoreboard.json";
+        protected string filePathName = "./Scoreboard.json";
         [SerializeField]
         protected int maxScoreStorage = 10;
         [SerializeField]
@@ -29,10 +29,11 @@ namespace FileScripts
             try
             {
                 StreamReader sr = new StreamReader(filePathName);
-                string text = sr.ReadToEnd();
                 sr.Close();
-
-                if (text == null || text == "")
+            }
+            catch (Exception e)
+            {
+                if (e.GetType() == typeof(FileNotFoundException))
                 {
                     StreamWriter sw = new StreamWriter(filePathName);
 
@@ -48,10 +49,6 @@ namespace FileScripts
 
                     sw.Close();
                 }
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
             }
         }
 
